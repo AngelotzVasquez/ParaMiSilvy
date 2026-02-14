@@ -1,22 +1,22 @@
 const container = document.getElementById("floating-container");
 
 // Sonido POP
-const popSound = new Audio("../sonido/Pop.mp3");
+const popSound = new Audio("sonido/Pop.mp3");
 popSound.volume = 0.5;
 
 // Imágenes / GIF
 const images = [
-    "../bg/monitos/ivan1.png",
-    "../bg/monitos/ivan2.gif",
-    "../bg/monitos/mizi1.png",
-    "../bg/monitos/mizi2.gif",
-    "../bg/monitos/mizi3.gif",
-    "../bg/monitos/sua1.gif",
-    "../bg/monitos/sua2.gif",
-    "../bg/monitos/sua3.gif",
-    "../bg/monitos/till1.png",
-    "../bg/monitos/till2.gif",
-    "../bg/monitos/till3.png"
+    "bg/monitos/ivan1.png",
+    "bg/monitos/ivan2.gif",
+    "bg/monitos/mizi1.png",
+    "bg/monitos/mizi2.gif",
+    "bg/monitos/mizi3.gif",
+    "bg/monitos/sua1.gif",
+    "bg/monitos/sua2.gif",
+    "bg/monitos/sua3.gif",
+    "bg/monitos/till1.png",
+    "bg/monitos/till2.gif",
+    "bg/monitos/till3.png"
 ];
 
 function createFloating() {
