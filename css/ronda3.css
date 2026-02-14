@@ -1,0 +1,231 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+/* FONDO */
+body {
+    background: linear-gradient(
+        -45deg,
+        #0a0b1e,
+        #2d1b4d,
+        #120912,
+        #1a1a2e
+    );
+
+    background-size: 400% 400%;
+    animation: alienBg 12s ease infinite;
+
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: white;
+}
+
+/* ANIMACION FONDO */
+@keyframes alienBg {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* TITULO */
+.round-title {
+    position: fixed;
+    inset: 0;
+
+    background: rgba(10,11,30,0.95);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 1000;
+    animation: titleFade 4s forwards;
+}
+
+.round-title h1 {
+    font-size: 48px;
+    color: #00f3ff;
+}
+
+.round-title h2 {
+    font-size: 22px;
+    color: #ff007a;
+    margin-top: 10px;
+}
+
+
+/* Anim titulo */
+@keyframes titleFade {
+
+    0% { opacity: 0; }
+    20% { opacity: 1; }
+    80% { opacity: 1; }
+    100% { opacity: 0; pointer-events: none; }
+
+}
+
+
+/*--------------------------------------------------*/
+
+
+/* MEMORY GRID */
+
+.memory-container {
+
+    display: grid;
+    grid-template-columns: repeat(5, 110px);
+    grid-gap: 15px;
+
+    margin-top: 80px;
+}
+
+
+/* CARTA */
+
+.card {
+
+    width: 110px;
+    height: 140px;
+
+    perspective: 1000px;
+    cursor: pointer;
+}
+
+
+/* INTERIOR */
+
+.card-inner {
+
+    width: 100%;
+    height: 100%;
+
+    position: relative;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+
+/* GIRADA */
+
+.card.flipped .card-inner {
+    transform: rotateY(180deg);
+}
+
+
+/* FRENTES */
+
+.card-front,
+.card-back {
+
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+
+    backface-visibility: hidden;
+    border-radius: 12px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    box-shadow: 0 0 15px rgba(0,243,255,0.3);
+}
+
+
+/* DELANTE (TAPA) */
+
+.card-front {
+
+    background: linear-gradient(
+        135deg,
+        #0a0b1e,
+        #2d1b4d
+    );
+
+    border: 2px solid #00f3ff;
+
+    color: #ff007a;
+    font-size: 28px;
+}
+
+
+/* DETRAS (IMAGEN) */
+
+.card-back {
+
+    background: #120912;
+
+    transform: rotateY(180deg);
+
+    border: 2px solid #ff007a;
+}
+
+
+/* IMAGEN */
+
+.card-back img {
+
+    width: 95%;
+    height: 95%;
+
+    object-fit: cover;
+    border-radius: 8px;
+
+    border: 1px solid #b0b0b0;
+}
+
+
+/* MATCH */
+
+.card.matched {
+
+    pointer-events: none;
+    opacity: 0.6;
+
+    filter: drop-shadow(0 0 10px #ff007a);
+}
+
+
+
+
+/* TEXTO MEMORY */
+
+.memory-text {
+
+    margin-bottom: 25px;
+
+    font-size: 20px;
+
+    color: #ff007a;
+
+    text-shadow: 
+        0 0 8px #ff007a,
+        0 0 15px #00f3ff;
+
+    animation: pulse 2s infinite;
+
+}
+
+
+/* LATIDO */
+
+@keyframes pulse {
+
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+
+}
+
+
+
+/*---------------------------------------------------*/

@@ -1,0 +1,194 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    /* Hacemos el degradado más grande (400%) para tener margen de movimiento */
+    background: linear-gradient(-45deg, #ffd6e8, #ffeef5, #ffb7d5, #fff5f9);
+    background-size: 400% 400%;
+    
+    /* Llamamos a la animación */
+    animation: gradientMovement 10s ease infinite;
+    
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+/* Definimos el movimiento */
+@keyframes gradientMovement {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.game {
+    width: 900px;
+    height: 550px;
+    /* Cambiamos el color por la imagen */
+    background-image: url('../bg/fondoki.webp'); 
+    background-size: cover;
+    background-position: center;
+    
+    /* Lo demás se queda igual */
+    border-radius: 20px;
+    box-shadow: 0 0 25px rgba(0,0,0,0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Personaje */
+#character {
+    position: absolute;
+    bottom: 120px;
+    left: 50%;
+    transform: translateX(-100%);
+    height: 380px;
+}
+
+/* Caja diálogo con imagen estilo DDLC */
+.dialogue-box {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 150px;
+
+    /* Imagen de fondo */
+    background-image: url("../bg/fondialogo.png");
+    background-size: cover;
+    background-position: center;
+
+    /* Oscurecemos un poquito para leer bien */
+    background-color: rgba(255, 255, 255, 0.5);
+    background-blend-mode: overlay;
+
+    padding: 15px;
+
+    border-top: 3px solid #ff8fb8;
+    box-shadow: 0 -4px 15px rgba(0,0,0,0.15);
+
+    border-radius: 0 0 20px 20px;
+    border: 2px solid rgba(255, 143, 184, 0.6);
+
+}
+
+
+#text {
+    font-size: 18px;
+    color: #ffffff;
+    min-height: 70px;
+
+    text-shadow:
+    0 0 3px rgba(255,255,255,0.6),
+    -1px -1px 0 #000,
+     1px -1px 0 #000,
+    -1px  1px 0 #000,
+     1px  1px 0 #000;
+
+}
+
+/* Botones */
+#nextBtn {
+    float: right;
+    padding: 8px 16px;
+    border: none;
+    background: #ff4f9a;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+#nextBtn:hover {
+    background: #ff2f85;
+}
+
+/* Opciones */
+.choices {
+    margin-top: 10px;
+}
+
+.choice-btn {
+    margin-right: 10px;
+    padding: 6px 12px;
+    background: white;
+    border: 2px solid #ff4f9a;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.choice-btn:hover {
+    background: #ffe3f0;
+}
+
+/* Transiciones suaves */
+
+#character {
+    transition: all 0.6s ease;
+    opacity: 1;
+}
+
+/* Personaje oculto (para animar entrada) */
+.hidden {
+    opacity: 0;
+    transform: translateX(-150%);
+}
+
+/* Texto fade */
+#text {
+    transition: opacity 0.4s ease;
+}
+
+/* Glitch Natsuki */
+.glitch {
+    animation: glitchEffect 0.15s infinite;
+}
+
+@keyframes glitchEffect {
+    0% {
+        transform: translate(0);
+        filter: hue-rotate(0deg);
+    }
+    20% {
+        transform: translate(-3px, 2px);
+    }
+    40% {
+        transform: translate(3px, -2px);
+        filter: hue-rotate(20deg);
+    }
+    60% {
+        transform: translate(-2px, 1px);
+    }
+    80% {
+        transform: translate(2px, -1px);
+        filter: hue-rotate(-20deg);
+    }
+    100% {
+        transform: translate(0);
+        filter: hue-rotate(0deg);
+    }
+}
+
+
+
+/* Transición al cambiar de página */
+body.fade-out {
+    animation: fadeOut 0.8s ease forwards;
+}
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+        filter: blur(6px);
+    }
+}

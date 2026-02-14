@@ -1,0 +1,257 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+/* FONDO */
+body {
+    background: linear-gradient(
+        -45deg,
+        #0a0b1e,
+        #2d1b4d,
+        #120912,
+        #1a1a2e
+    );
+
+    background-size: 400% 400%;
+    animation: alienBg 12s ease infinite;
+
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: white;
+}
+
+/* ANIMACION FONDO */
+@keyframes alienBg {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+
+/* TITULO */
+.round-title {
+    position: fixed;
+    inset: 0;
+
+    background: rgba(10,11,30,0.95);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 1000;
+    animation: titleFade 4s forwards;
+}
+
+.round-title h1 {
+    font-size: 48px;
+    color: #00f3ff;
+}
+
+.round-title h2 {
+    font-size: 22px;
+    color: #ff007a;
+    margin-top: 10px;
+}
+
+
+/* Anim titulo */
+@keyframes titleFade {
+
+    0% { opacity: 0; }
+    20% { opacity: 1; }
+    80% { opacity: 1; }
+    100% { opacity: 0; pointer-events: none; }
+
+}
+
+
+/* CONTENEDOR */
+.game-container {
+
+    background: rgba(0,0,0,0.6);
+
+    padding: 40px;
+
+    border-radius: 25px;
+
+    text-align: center;
+
+    box-shadow: 0 0 40px rgba(255,0,120,0.3);
+
+    max-width: 500px;
+
+    animation: fadeIn 1s ease;
+}
+
+
+/* Till */
+.till {
+    width: 120px;
+    margin-bottom: 20px;
+
+    animation: float 3s infinite;
+}
+
+@keyframes float {
+
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+
+}
+
+
+/* Pregunta */
+h3 {
+    margin-bottom: 25px;
+    color: #ddd;
+}
+
+
+/* Respuestas */
+.answers {
+
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+}
+
+.answers button {
+
+    padding: 12px;
+
+    border: none;
+    border-radius: 12px;
+
+    background: #ff4f9a;
+
+    color: white;
+
+    cursor: pointer;
+
+    font-size: 15px;
+
+    transition: 0.3s;
+}
+
+.answers button:hover {
+
+    background: #ff2f85;
+    transform: scale(1.05);
+
+}
+
+
+/* Oculto */
+.hidden {
+    display: none;
+}
+
+
+/* Fade */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+
+/*---------------------------------------------------*/
+
+/* Transición entre páginas */
+.page-fade {
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(
+        -45deg,
+        #0a0b1e,
+        #2d1b4d,
+        #ff007a,
+        #120912
+    );
+    background-size: 400% 400%;
+    animation: alienBg 6s ease infinite;
+
+    z-index: 9999;
+
+    opacity: 0;
+    pointer-events: none;
+
+    transition: opacity 1s ease;
+}
+
+.page-fade.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+
+
+
+
+/* POPUP FINAL */
+
+.final-popup {
+    position: fixed;
+    inset: 0;
+
+    background: rgba(10,11,30,0.9);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    opacity: 0;
+    pointer-events: none;
+
+    transition: 0.4s ease;
+
+    z-index: 9999;
+}
+
+.final-popup.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.popup-box {
+    background: #1a1b3a;
+
+    padding: 30px 40px;
+
+    border-radius: 20px;
+
+    border: 2px solid #00f3ff;
+
+    font-size: 22px;
+
+    color: white;
+
+    box-shadow: 0 0 30px rgba(0,243,255,0.5);
+
+    text-align: center;
+
+    animation: popIn 0.4s ease;
+}
+
+@keyframes popIn {
+    from {
+        transform: scale(0.7);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+

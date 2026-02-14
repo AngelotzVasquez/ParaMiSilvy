@@ -1,0 +1,130 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+/* FONDO */
+body {
+    background: linear-gradient(
+        -45deg,
+        #0a0b1e,
+        #2d1b4d,
+        #120912,
+        #1a1a2e
+    );
+
+    background-size: 400% 400%;
+    animation: alienBg 12s ease infinite;
+
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: white;
+}
+
+/* ANIMACION FONDO */
+@keyframes alienBg {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+
+/* TITULO */
+.round-title {
+    position: fixed;
+    inset: 0;
+
+    background: rgba(10,11,30,0.95);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 1000;
+    animation: titleFade 4s forwards;
+}
+
+.round-title h1 {
+    font-size: 48px;
+    color: #00f3ff;
+}
+
+.round-title h2 {
+    font-size: 22px;
+    color: #ff007a;
+    margin-top: 10px;
+}
+
+
+/* Anim titulo */
+@keyframes titleFade {
+
+    0% { opacity: 0; }
+    20% { opacity: 1; }
+    80% { opacity: 1; }
+    100% { opacity: 0; pointer-events: none; }
+
+}
+
+
+
+/*------------------------------------*/
+.game-container{
+    margin-top: 40px;
+}
+
+.words-container,
+.answer-container{
+    min-height: 70px;
+    margin: 20px auto;
+    padding: 15px;
+    width: 80%;
+    background: rgba(0,0,0,0.5);
+    border-radius: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.word{
+    background: #ff4fa3;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    user-select: none;
+    transition: 0.2s;
+}
+
+.word:hover{
+    transform: scale(1.1);
+    background: #ff75ba;
+}
+
+#checkBtn{
+    margin-top: 20px;
+    padding: 10px 25px;
+    font-size: 16px;
+    border: none;
+    border-radius: 20px;
+    background: #00ffd5;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#checkBtn:hover{
+    background: #00c9aa;
+}
+
+h3{
+    margin-bottom: 15px;
+    color: #fff;
+}

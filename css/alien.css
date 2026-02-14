@@ -1,0 +1,179 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+
+    background: linear-gradient(
+        -45deg,
+        #0f0f1a,
+        #1a1a2e,
+        #2b1b2f,
+        #120912
+    );
+
+    background-size: 400% 400%;
+
+    animation: alienBg 12s ease infinite;
+
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: white;
+
+    transition: opacity 0.8s;
+}
+
+
+@keyframes alienBg {
+
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+
+}
+
+
+.alien-container {
+
+    text-align: center;
+
+    background: rgba(0,0,0,0.6);
+
+    padding: 40px;
+
+    border-radius: 20px;
+
+    box-shadow: 0 0 30px rgba(255,0,120,0.3);
+}
+
+
+h1 {
+
+    color: #ff7eb9;
+
+    margin-bottom: 20px;
+}
+
+
+p {
+
+    line-height: 1.7;
+
+    margin-bottom: 25px;
+
+    color: #ddd;
+}
+
+
+button {
+
+    padding: 10px 20px;
+
+    background: #ff4f9a;
+
+    border: none;
+
+    border-radius: 10px;
+
+    color: white;
+
+    cursor: pointer;
+
+    font-size: 16px;
+}
+
+
+button:hover {
+
+    background: #ff2f85;
+}
+
+
+
+/*-----------------------------------------------------------------
+
+
+/* El fondo oscuro que cubre toda la pantalla */
+.modal {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 11, 30, 0.9); /* Azul profundo ALNST con transparencia */
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+/* La cajita blanca/neón */
+.modal-content {
+    background: #1a1b3a;
+    padding: 30px;
+    border-radius: 20px;
+    border: 2px solid #00f3ff; /* Borde neón */
+    text-align: center;
+    box-shadow: 0 0 30px rgba(0, 243, 255, 0.4);
+    max-width: 400px;
+}
+
+.gif-modal {
+    width: 100%;
+    border-radius: 10px;
+    margin: 20px 0;
+}
+
+.modal-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+/* Estilo rápido para los botones del modal */
+#confirmarBtn, #cancelarBtn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+}
+
+#confirmarBtn { background: #00f3ff; color: #0a0b1e; font-weight: bold; }
+#cancelarBtn { background: #ff007a; color: white; }
+
+
+
+.gif-container {
+    width: 100%;
+    height: 180px; /* Ajusta según el tamaño de tus GIFs */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+    padding: 40px;
+}
+
+.gif-slide {
+    display: none; /* Todos ocultos por defecto */
+    width: 100%;
+    border-radius: 10px;
+}
+
+.gif-slide.active {
+    display: block; /* Solo el que tenga la clase 'active' se ve */
+    animation: fadeIn 0.5s; /* Un efecto suave al cambiar */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}

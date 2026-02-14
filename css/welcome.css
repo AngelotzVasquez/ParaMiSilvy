@@ -1,0 +1,203 @@
+/* Contenedor flotante */
+#floating-container {
+    position: fixed;
+    inset: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+
+    pointer-events: none; /* 👈 deja pasar clicks */
+
+    z-index: 999;
+}
+
+
+/* Cada monito */
+.floating-img {
+    position: absolute;
+    width: 60px;
+    opacity: 0.8;
+    animation: float linear infinite;
+    pointer-events: auto; /* 👈 solo los monitos clickeables */
+}
+
+
+@keyframes float {
+    0% {
+        transform: translate(0, 0) scale(0.7);
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 0.9;
+    }
+
+    50% {
+        transform: translate(
+            calc(var(--move-x) / 2),
+            calc(var(--move-y) / 2)
+        ) scale(1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(
+            var(--move-x),
+            var(--move-y)
+        ) scale(0.9);
+        opacity: 0;
+    }
+}
+
+
+/* Animación POP */
+.pop {
+    animation: popEffect 0.3s ease forwards;
+}
+
+@keyframes popEffect {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    70% {
+        transform: scale(1.5);
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: scale(0);
+        opacity: 0;
+    }
+}
+
+
+
+/* Pantalla bienvenida */
+
+
+.welcome-screen {
+    position: absolute;
+    inset: 0;
+
+    background: linear-gradient(-45deg, #ffd6e8, #ffeef5, #ffb7d5, #fff5f9);
+    background-size: 400% 400%;
+    animation: gradientMovement 10s ease infinite;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+    z-index: 10;
+
+    transition: opacity 0.8s ease;
+}
+
+.welcome-screen h1 {
+    font-size: 28px;
+    color: #ff4f9a;
+    margin-bottom: 15px;
+}
+
+.welcome-screen p {
+    font-size: 16px;
+    color: #444;
+    margin-bottom: 10px;
+}
+
+.welcome-screen .sub {
+    font-size: 14px;
+    opacity: 0.7;
+}
+
+#welcome button {
+    margin-top: 25px;
+
+    padding: 12px 28px;
+    font-size: 16px;
+
+    border: none;
+    border-radius: 12px;
+
+    background: #ff4f9a;
+    color: white;
+
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#welcome button:hover {
+    background: #ff2f85;
+    transform: scale(1.05);
+}
+
+/* Ocultar bienvenida */
+.hidden-welcome {
+    opacity: 0;
+    pointer-events: none;
+}
+
+#startBtn {
+
+    animation: heartbeat 1.4s infinite;
+
+    transform-origin: center;
+
+}
+
+
+/* Animación */
+
+@keyframes heartbeat {
+
+    0% {
+        transform: scale(1);
+    }
+
+    25% {
+        transform: scale(1.08);
+    }
+
+    40% {
+        transform: scale(0.95);
+    }
+
+    60% {
+        transform: scale(1.05);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+
+.welcome-card {
+    background: rgba(255, 255, 255, 0.92); /* Blanco suave */
+
+    padding: 40px 50px;
+    border-radius: 25px;
+
+    box-shadow: 
+        0 0 30px rgba(255, 105, 180, 0.35),
+        0 0 60px rgba(255, 182, 193, 0.25);
+
+    max-width: 520px;
+
+    backdrop-filter: blur(6px);
+
+    animation: floatCard 3s ease-in-out infinite;
+}
+
+
+@keyframes floatCard {
+    0%   { transform: translateY(0px); }
+    50%  { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}

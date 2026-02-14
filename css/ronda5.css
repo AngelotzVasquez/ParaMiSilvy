@@ -1,0 +1,186 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+/* FONDO */
+body {
+    background: linear-gradient(
+        -45deg,
+        #0a0b1e,
+        #2d1b4d,
+        #120912,
+        #1a1a2e
+    );
+
+    background-size: 400% 400%;
+    animation: alienBg 12s ease infinite;
+
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: white;
+}
+
+/* ANIMACION FONDO */
+@keyframes alienBg {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* TITULO */
+.round-title {
+    position: fixed;
+    inset: 0;
+
+    background: rgba(10,11,30,0.95);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 1000;
+    animation: titleFade 4s forwards;
+}
+
+.round-title h1 {
+    font-size: 48px;
+    color: #00f3ff;
+}
+
+.round-title h2 {
+    font-size: 22px;
+    color: #ff007a;
+    margin-top: 10px;
+}
+
+
+/* Anim titulo */
+@keyframes titleFade {
+
+    0% { opacity: 0; }
+    20% { opacity: 1; }
+    80% { opacity: 1; }
+    100% { opacity: 0; pointer-events: none; }
+
+}
+
+
+
+/*---------------------------------*/
+
+
+/* RHYTHM GAME */
+
+.rhythm-game {
+
+    width: 420px;
+    margin-top: 50px;
+
+    background: rgba(0,0,0,0.6);
+    padding: 25px;
+
+    border-radius: 25px;
+
+    box-shadow: 0 0 30px #ff007a;
+
+    text-align: center;
+}
+
+
+/* HUD */
+
+.hud {
+
+    display: flex;
+    justify-content: space-between;
+
+    margin-bottom: 15px;
+
+    color: #00f3ff;
+    font-size: 18px;
+}
+
+
+/* LANES */
+
+.lanes {
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 12px;
+
+    height: 400px;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+.lane {
+
+    background: #0a0b1e;
+
+    border: 2px solid #ff007a;
+
+    border-radius: 15px;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+
+    font-size: 28px;
+
+    padding-bottom: 10px;
+
+    position: relative;
+}
+
+
+/* NOTES */
+
+.note {
+    position: absolute;
+
+    top: -60px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 60px;
+    height: 60px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.note-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    pointer-events: none;
+
+    filter: drop-shadow(0 0 8px #00f3ff);
+}
+
+
+.arrow {
+  width: 60px;
+  height: 60px;
+  image-rendering: pixelated; /* modo retro 😎 */
+  pointer-events: none;
+}
+
+.lane.active img {
+  filter: drop-shadow(0 0 12px #00ffcc);
+  transform: scale(1.1);
+}

@@ -1,0 +1,183 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+/* FONDO */
+body {
+    background: linear-gradient(
+        -45deg,
+        #0a0b1e,
+        #2d1b4d,
+        #120912,
+        #1a1a2e
+    );
+
+    background-size: 400% 400%;
+    animation: alienBg 12s ease infinite;
+
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: white;
+}
+
+/* ANIMACION FONDO */
+@keyframes alienBg {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* TITULO */
+.round-title {
+    position: fixed;
+    inset: 0;
+
+    background: rgba(10,11,30,0.95);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 1000;
+    animation: titleFade 4s forwards;
+}
+
+.round-title h1 {
+    font-size: 48px;
+    color: #00f3ff;
+}
+
+.round-title h2 {
+    font-size: 22px;
+    color: #ff007a;
+    margin-top: 10px;
+}
+
+
+/* Anim titulo */
+@keyframes titleFade {
+
+    0% { opacity: 0; }
+    20% { opacity: 1; }
+    80% { opacity: 1; }
+    100% { opacity: 0; pointer-events: none; }
+
+}
+
+/*-----------------------------*/
+
+/* JUEGO FINAL */
+
+.final-game {
+    text-align: center;
+    opacity: 0;
+
+    animation: showGame 1s forwards;
+    animation-delay: 4s; /* aparece después del título */
+}
+
+@keyframes showGame {
+    to {
+        opacity: 1;
+    }
+}
+
+.final-game h2 {
+    font-size: 28px;
+    margin-bottom: 30px;
+}
+
+.buttons {
+    position: relative;
+    width: 300px;
+    height: 150px;
+    margin: auto;
+}
+
+button {
+    font-size: 20px;
+    padding: 12px 28px;
+
+    border: none;
+    border-radius: 10px;
+
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+#yes {
+    background: #444;
+    color: white;
+}
+
+#yes:hover {
+    transform: scale(1.1);
+}
+
+#no {
+    background: #ff007a;
+    color: white;
+
+    position: absolute;
+    left: 180px;
+    top: 0;
+}
+
+
+/*---------------------------*/
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(10,11,30,0.95);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    color: white;
+    padding: 40px;
+    text-align: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.5s;
+}
+
+.modal.show {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.modal-content {
+    max-width: 700px;
+    background: rgba(0,0,0,0.6);
+    border: 2px solid #ff007a;
+    border-radius: 20px;
+    padding: 30px;
+    animation: neonFade 0.8s forwards;
+}
+
+.modal-content h1 {
+    color: #ff007a;
+    margin-bottom: 20px;
+}
+
+.modal-content .letter {
+    font-size: 18px;
+    line-height: 1.6;
+    text-align: left;
+}
+
+/* Neon fade anim */
+@keyframes neonFade {
+    0% { box-shadow: 0 0 0px #ff007a; }
+    50% { box-shadow: 0 0 20px #ff007a; }
+    100% { box-shadow: 0 0 10px #ff007a; }
+}
+
